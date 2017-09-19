@@ -24,15 +24,17 @@
 		<mkdir dir="${dependencies.dir}/res" />
 		<mkdir dir="${dependencies.dir}/log" />
 		<mkdir dir="${dependencies.dir}/cache" />
-
-		<!-- Copy auxiliary resources -->
-		<copy todir="${dependencies.dir}">
-			<fileset dir="resources" />
-		</copy>
 	</target>
 
 	<target name="zip">
 		<zip destfile="${build.dir}/${archive_name}.zip" basedir="${dependencies.dir}" />
+	</target>
+
+	<!-- Copy auxiliary resources -->
+	<target name="copy">
+		<copy todir="${dependencies.dir}">
+			<fileset dir="resources/${license.type}" />
+		</copy>
 	</target>
 
 	<!-- Bundles with Apache License, including source files -->
@@ -45,6 +47,9 @@
 		<get src="${IOUtils.location_src}" dest="${dependencies.dir}/plugins" />
 		<get src="${UnDeadAnalyzer.location_src}" dest="${dependencies.dir}/plugins" />
 		<get src="${MetricHaven.location_src}" dest="${dependencies.dir}/plugins" />
+		<antcall target="copy">
+			<param name="license.type" value="Apache2" />
+		</antcall>
 		<antcall target="zip">
 			<param name="archive_name" value="KernelHaven_Apache-2.0_withsource" />
 		</antcall>
@@ -55,6 +60,9 @@
 		<get src="${KconfigReaderExtractor.location_src}" dest="${dependencies.dir}/plugins" />
 		<get src="${KbuildMinerExtractor.location_src}" dest="${dependencies.dir}/plugins" />
 		<get src="${Undertaker.location_src}" dest="${dependencies.dir}/plugins" />
+		<antcall target="copy">
+			<param name="license.type" value="GPLv3" />
+		</antcall>
 		<antcall target="zip">
 			<param name="archive_name" value="KernelHaven_GPLv3_withsource" />
 		</antcall>
