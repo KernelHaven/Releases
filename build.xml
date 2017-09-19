@@ -24,6 +24,11 @@
 		<mkdir dir="${dependencies.dir}/res" />
 		<mkdir dir="${dependencies.dir}/log" />
 		<mkdir dir="${dependencies.dir}/cache" />
+
+		<!-- Copy auxiliary resources -->
+		<copy todir="${dependencies.dir}">
+			<fileset dir="resources" />
+		</copy>
 	</target>
 
 	<target name="zip">
