@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- author: Sascha El-Sharkawy -->
+<project name="Releases" default="jenkins" basedir=".">
+	<description>Builds automatically releases.</description>
+
+	<!-- Load Marcros on Jenkins -->
+	<include file="../../KernelHaven_Infrastructure/workspace/KernelHavenMacros.xml" as="KH_Common" optional="true" />
+	<!-- Load Marcros in Eclipse -->
+	<include file="../KernelHaven/KernelHavenMacros.xml" as="KH_Common" optional="true" />
+
+	<target name="jenkins">
+		<delete dir="${build.dir}" />
+		<mkdir dir="${build.dir}" />
+		<!-- Creates ALL source bundles -->
+		<antcall target="gpl_src" />
+	</target>
+
+	<target name="init">
+		<delete dir="${dependencies.dir}" />
+		<mkdir dir="${dependencies.dir}" />
+		<mkdir dir="${dependencies.dir}/plugins" />
+		<mkdir dir="${dependencies.dir}/output" />
+		<mkdir dir="${dependencies.dir}/res" />
+		<mkdir dir="${dependencies.dir}/log" />
+		<mkdir dir="${dependencies.dir}/cache" />
+	</target>
+
+	<target name="zip">
+		<zip destfile="${build.dir}/${archive_name}.zip" basedir="${dependencies.dir}" />
+	</target>
+
+	<!-- Bundles with Apache License, including source files -->
+	<target name="basis_src">
+		<antcall target="init" />
+		<get src="${infrastructure.location.core_src}" dest="${dependencies.dir}" />
+		<get src="${TypeChef.location_src}" dest="${dependencies.dir}/plugins" />
+		<get src="${CnfUtils.location_src}" dest="${dependencies.dir}/plugins" />
+		<get src="${FeatureEffectAnalysis.location_src}" dest="${dependencies.dir}/plugins" />
+		<get src="${IOUtils.location_src}" dest="${dependencies.dir}/plugins" />
+		<get src="${UnDeadAnalyzer.location_src}" dest="${dependencies.dir}/plugins" />
+		<get src="${MetricHaven.location_src}" dest="${dependencies.dir}/plugins" />
+		<antcall target="zip">
+			<param name="archive_name" value="KernelHaven_Apache-2.0_withsource" />
+		</antcall>
+	</target>
+
+	<!-- Bundles with GPL License, including source files -->
+	<target name="gpl_src" depends="basis_src">
+		<get src="${KconfigReaderExtractor.location_src}" dest="${dependencies.dir}/plugins" />
+		<get src="${KbuildMinerExtractor.location_src}" dest="${dependencies.dir}/plugins" />
+		<get src="${Undertaker.location_src}" dest="${dependencies.dir}/plugins" />
+		<antcall target="zip">
+			<param name="archive_name" value="KernelHaven_GPLv3_withsource" />
+		</antcall>
+	</target>
+</project>
