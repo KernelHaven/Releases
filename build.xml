@@ -15,17 +15,7 @@
 		<!-- Creates ALL source bundles -->
 		<antcall target="gpl_src" />
 	</target>
-
-	<target name="init">
-		<delete dir="${dependencies.dir}" />
-		<mkdir dir="${dependencies.dir}" />
-		<mkdir dir="${dependencies.dir}/plugins" />
-		<mkdir dir="${dependencies.dir}/output" />
-		<mkdir dir="${dependencies.dir}/res" />
-		<mkdir dir="${dependencies.dir}/log" />
-		<mkdir dir="${dependencies.dir}/cache" />
-	</target>
-
+	
 	<target name="zip">
 		<zip destfile="${build.dir}/${archive_name}.zip" basedir="${dependencies.dir}" />
 	</target>
@@ -39,7 +29,9 @@
 
 	<!-- Bundles with Apache License, including source files -->
 	<target name="basis_src">
-		<antcall target="init" />
+		<antcall target="KH_Common.kh.folder.structure">
+			<param name="base.kh.folder" value="${dependencies.dir}" />
+		</antcall>
 		<get src="${infrastructure.location.core_src}" dest="${dependencies.dir}" />
 		<get src="${TypeChef.location_src}" dest="${dependencies.dir}/plugins" />
 		<get src="${CnfUtils.location_src}" dest="${dependencies.dir}/plugins" />
