@@ -27,5 +27,5 @@
 
 #define CONFIG_NODES_SHIFT 32
 #define CONFIG_PGTABLE_LEVELS 5
-#define NR_CPUS 1
-
+#define NR_CPUS 4
+#define BITS_PER_LONG 64
