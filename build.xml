@@ -52,6 +52,7 @@
 		<get src="${KconfigReaderExtractor.location_src}" dest="${dependencies.dir}/plugins" />
 		<get src="${KbuildMinerExtractor.location_src}" dest="${dependencies.dir}/plugins" />
 		<get src="${Undertaker.location_src}" dest="${dependencies.dir}/plugins" />
+		<get src="${srcML.location_src}" dest="${dependencies.dir}/plugins" />
 		<antcall target="copy">
 			<param name="license.type" value="GPLv3" />
 		</antcall>
