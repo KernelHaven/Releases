@@ -26,6 +26,10 @@
 			<fileset dir="resources/${license.type}" />
 		</copy>
 	</target>
+	
+	<target name="downloadManual">
+		<get src="${KH.Manual}" dest="${dependencies.dir}/" />
+	</target>
 
 	<!-- Bundles with Apache License, including source files -->
 	<target name="basis_src">
@@ -42,6 +46,7 @@
 		<antcall target="copy">
 			<param name="license.type" value="Apache2" />
 		</antcall>
+		<antcall target="downloadManual" />
 		<antcall target="zip">
 			<param name="archive_name" value="KernelHaven_Apache-2.0_withsource" />
 		</antcall>
