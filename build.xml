@@ -2,7 +2,7 @@
 
 <!-- author: Sascha El-Sharkawy -->
 <project name="Releases" default="jenkins" basedir=".">
-	<description>Builds automatically releases.</description>
+	<description>Automatically packages releases</description>
 
 	<!-- Load Marcros on Jenkins -->
 	<include file="../../KernelHaven_Infrastructure/workspace/KernelHavenMacros.xml" as="KH_Common" optional="true" />
@@ -15,7 +15,7 @@
 		<!-- Creates ALL source bundles -->
 		<antcall target="gpl_src" />
 	</target>
-	
+
 	<target name="zip">
 		<zip destfile="${build.dir}/${archive_name}.zip" basedir="${dependencies.dir}" />
 	</target>
@@ -26,7 +26,7 @@
 			<fileset dir="resources/${license.type}" />
 		</copy>
 	</target>
-	
+
 	<target name="downloadManual">
 		<get src="${KH.Manual}" dest="${dependencies.dir}/" />
 	</target>
@@ -65,4 +65,5 @@
 			<param name="archive_name" value="KernelHaven_GPLv3_withsource" />
 		</antcall>
 	</target>
+
 </project>
