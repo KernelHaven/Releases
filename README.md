@@ -1,6 +1,6 @@
 # Releases
 
-![Build Status](http://jenkins.sse.uni-hildesheim.de/buildStatus/icon?job=KernelHaven_Public_Releases)
+![Build Status](https://jenkins.sse.uni-hildesheim.de/buildStatus/icon?job=KernelHaven_Public_Releases)
 
 Build script to automatically package full releases of [KernelHaven](https://github.com/KernelHaven/KernelHaven).
 
@@ -11,4 +11,4 @@ Build script to automatically package full releases of [KernelHaven](https://git
 
 ## License
 
-This project is licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0.html).
+This project is licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0.html).
