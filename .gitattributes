@@ -1,0 +1,2 @@
+# Tell Github that resources/ does not contain "real" source files for language detection
+resources/* linguist-vendored
