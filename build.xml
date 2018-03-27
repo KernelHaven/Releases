@@ -29,6 +29,7 @@
 
 	<target name="downloadManual">
 		<get src="${KH.Manual}" dest="${dependencies.dir}/" />
+		<get src="${KH.PropertyTemplate}" dest="${dependencies.dir}/" />
 	</target>
 
 	<!-- Bundles with Apache License, including source files -->
@@ -44,9 +45,10 @@
 		<get src="${UnDeadAnalyzer.location_src}" dest="${dependencies.dir}/plugins" />
 		<get src="${MetricHaven.location_src}" dest="${dependencies.dir}/plugins" />
 		<get src="${CodeBlockExtractor.location_src}" dest="${dependencies.dir}/plugins" />
-		<antcall target="copy">
+		<!-- TODO SE & AK: Create a config for Apache2 -->
+		<!--antcall target="copy">
 			<param name="license.type" value="Apache2" />
-		</antcall>
+		</antcall-->
 		<antcall target="downloadManual" />
 		<antcall target="zip">
 			<param name="archive_name" value="KernelHaven_Apache-2.0_withsource" />
