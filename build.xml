@@ -42,6 +42,7 @@
 		<get src="${CnfUtils.location_src}" dest="${dependencies.dir}/plugins" />
 		<get src="${FeatureEffectAnalysis.location_src}" dest="${dependencies.dir}/plugins" />
 		<get src="${IOUtils.location_src}" dest="${dependencies.dir}/plugins" />
+		<get src="${DBUtils.location_src}" dest="${dependencies.dir}/plugins" />
 		<get src="${UnDeadAnalyzer.location_src}" dest="${dependencies.dir}/plugins" />
 		<get src="${MetricHaven.location_src}" dest="${dependencies.dir}/plugins" />
 		<get src="${CodeBlockExtractor.location_src}" dest="${dependencies.dir}/plugins" />
