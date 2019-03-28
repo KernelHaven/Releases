@@ -47,9 +47,8 @@
 		<get src="${MetricHaven.location_src}" dest="${dependencies.dir}/plugins" />
 		<get src="${CodeBlockExtractor.location_src}" dest="${dependencies.dir}/plugins" />
 		<get src="${BusybootPreparation.location_src}" dest="${dependencies.dir}/plugins" />
-		<!-- PSS Mapper does not build on new Jenkins, for this reason it is removed from build to not block the release
 		<get src="${PSS_MapperAnalysis.location_src}" dest="${dependencies.dir}/plugins" />
-		<get src="${PSS_DivergenceDetectorAnalysis.location_src}" dest="${dependencies.dir}/plugins" /> -->
+		<get src="${PSS_DivergenceDetectorAnalysis.location_src}" dest="${dependencies.dir}/plugins" />
 		<!-- TODO SE & AK: Create a config for Apache2 -->
 		<!--antcall target="copy">
 			<param name="license.type" value="Apache2" />
