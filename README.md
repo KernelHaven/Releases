@@ -1,6 +1,6 @@
 # Releases
 
-![Build Status](https://jenkins-2.sse.uni-hildesheim.de/buildStatus/icon?job=KH_Public_Releases)
+![Build Status](https://jenkins-2.sse.uni-hildesheim.de/buildStatus/icon?job=KH_Releases)
 
 Build script to automatically package full releases of [KernelHaven](https://github.com/KernelHaven/KernelHaven).
 
