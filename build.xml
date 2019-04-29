@@ -28,8 +28,8 @@
 	</target>
 
 	<target name="downloadManual">
-		<get src="${misc.manual.url}" dest="${dependencies.dir}/" />
-		<get src="${misc.PropertyTemplate.url}" dest="${dependencies.dir}/" />
+		<get src="${misc.manual.url}" dest="${dependencies.dir}" />
+		<get src="${misc.PropertyTemplate.url}" dest="${dependencies.dir}" />
 	</target>
 
 	<!-- Bundles with Apache License, including source files -->
