@@ -5,9 +5,9 @@
 	<description>Automatically packages releases</description>
 
 	<!-- Load Marcros on Jenkins -->
-	<include file="../KH_KernelHaven/KernelHavenMacros.xml" as="KH_Common" optional="true" />
+	<include file="../KH_KernelHaven/ant/common.xml" optional="true" />
 	<!-- Load Marcros in Eclipse -->
-	<include file="../KernelHaven/KernelHavenMacros.xml" as="KH_Common" optional="true" />
+	<include file="../KernelHaven/ant/common.xml" optional="true" />
 
 	<target name="jenkins">
 		<delete dir="${build.dir}" />
@@ -28,48 +28,48 @@
 	</target>
 
 	<target name="downloadManual">
-		<get src="${KH.Manual}" dest="${dependencies.dir}/" />
-		<get src="${KH.PropertyTemplate}" dest="${dependencies.dir}/" />
+		<get src="${misc.manual.url}" dest="${dependencies.dir}/" />
+		<get src="${misc.PropertyTemplate.url}" dest="${dependencies.dir}/" />
 	</target>
 
 	<!-- Bundles with Apache License, including source files -->
 	<target name="basis_src">
-		<antcall target="KH_Common.kh.folder.structure">
+		<antcall target="KH_Common.release.folder.structure">
 			<param name="base.kh.folder" value="${dependencies.dir}" />
 		</antcall>
-		<get src="${infrastructure.location.core_src}" dest="${dependencies.dir}" />
-		<get src="${TypeChef.location_src}" dest="${dependencies.dir}/plugins" />
-		<get src="${CnfUtils.location_src}" dest="${dependencies.dir}/plugins" />
-		<get src="${FeatureEffectAnalysis.location_src}" dest="${dependencies.dir}/plugins" />
-		<get src="${IOUtils.location_src}" dest="${dependencies.dir}/plugins" />
-		<get src="${DBUtils.location_src}" dest="${dependencies.dir}/plugins" />
-		<get src="${UnDeadAnalyzer.location_src}" dest="${dependencies.dir}/plugins" />
-		<get src="${MetricHaven.location_src}" dest="${dependencies.dir}/plugins" />
-		<get src="${CodeBlockExtractor.location_src}" dest="${dependencies.dir}/plugins" />
-		<get src="${BusybootPreparation.location_src}" dest="${dependencies.dir}/plugins" />
-		<get src="${PSS_MapperAnalysis.location_src}" dest="${dependencies.dir}/plugins" />
-		<get src="${PSS_DivergenceDetectorAnalysis.location_src}" dest="${dependencies.dir}/plugins" />
-		<!-- TODO SE & AK: Create a config for Apache2 -->
+		<get src="${infrastructure.main.url}" dest="${dependencies.dir}" />
+		<get src="${plugins.TypeChefExtractor.url}" dest="${dependencies.dir}/plugins" />
+		<get src="${plugins.CnfUtils.url}" dest="${dependencies.dir}/plugins" />
+		<get src="${plugins.FeatureEffectAnalysis.url}" dest="${dependencies.dir}/plugins" />
+		<get src="${plugins.IOUtils.url}" dest="${dependencies.dir}/plugins" />
+		<get src="${plugins.DBUtils.url}" dest="${dependencies.dir}/plugins" />
+		<get src="${plugins.UnDeadAnalyzer.url}" dest="${dependencies.dir}/plugins" />
+		<get src="${plugins.MetricHaven.url}" dest="${dependencies.dir}/plugins" />
+		<get src="${plugins.CodeBlockExtractor.url}" dest="${dependencies.dir}/plugins" />
+		<get src="${plugins.BusybootPreparation.url}" dest="${dependencies.dir}/plugins" />
+		<get src="${plugins.ProblemSolutionSpaceMapperAnalysis.url}" dest="${dependencies.dir}/plugins" />
+		<get src="${plugins.ProblemSolutionSpaceDivergenceDetectorAnalysis.url}" dest="${dependencies.dir}/plugins" />
+		<get src="${plugins.ProblemSolutionSpaceDivergenceCorrectorAnalysis.url}" dest="${dependencies.dir}/plugins" />
 		<antcall target="copy">
 			<param name="license.type" value="Apache2" />
 		</antcall>
 		<antcall target="downloadManual" />
 		<antcall target="zip">
-			<param name="archive_name" value="KernelHaven_Apache-2.0_withsource" />
+			<param name="archive_name" value="KernelHaven_Apache-2.0" />
 		</antcall>
 	</target>
 
 	<!-- Bundles with GPL License, including source files -->
 	<target name="gpl_src" depends="basis_src">
-		<get src="${KconfigReaderExtractor.location_src}" dest="${dependencies.dir}/plugins" />
-		<get src="${KbuildMinerExtractor.location_src}" dest="${dependencies.dir}/plugins" />
-		<get src="${Undertaker.location_src}" dest="${dependencies.dir}/plugins" />
-		<get src="${srcML.location_src}" dest="${dependencies.dir}/plugins" />
+		<get src="${plugins.KconfigReaderExtractor.url}" dest="${dependencies.dir}/plugins" />
+		<get src="${plugins.KbuildMinerExtractor.url}" dest="${dependencies.dir}/plugins" />
+		<get src="${plugins.UndertakerExtractor.url}" dest="${dependencies.dir}/plugins" />
+		<get src="${plugins.srcMLExtractor.url}" dest="${dependencies.dir}/plugins" />
 		<antcall target="copy">
 			<param name="license.type" value="GPLv3" />
 		</antcall>
 		<antcall target="zip">
-			<param name="archive_name" value="KernelHaven_GPLv3_withsource" />
+			<param name="archive_name" value="KernelHaven_GPLv3" />
 		</antcall>
 	</target>
 
