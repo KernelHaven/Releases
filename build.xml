@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- author: Sascha El-Sharkawy -->
+<!-- Author: Adam, Sascha El-Sharkawy -->
 <project name="Releases" default="jenkins" basedir=".">
 	<description>Automatically packages releases</description>
 
