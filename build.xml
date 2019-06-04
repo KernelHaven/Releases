@@ -41,6 +41,7 @@
 		<get src="${plugins.TypeChefExtractor.url}" dest="${dependencies.dir}/plugins" />
 		<get src="${plugins.CnfUtils.url}" dest="${dependencies.dir}/plugins" />
 		<get src="${plugins.FeatureEffectAnalysis.url}" dest="${dependencies.dir}/plugins" />
+		<get src="${plugins.EntityLocatorAnalysis.url}" dest="${dependencies.dir}/plugins" />
 		<get src="${plugins.IOUtils.url}" dest="${dependencies.dir}/plugins" />
 		<get src="${plugins.DBUtils.url}" dest="${dependencies.dir}/plugins" />
 		<get src="${plugins.UnDeadAnalyzer.url}" dest="${dependencies.dir}/plugins" />
