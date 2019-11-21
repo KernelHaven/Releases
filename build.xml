@@ -49,6 +49,7 @@
 		<get src="${plugins.MetricHaven.url}" dest="${dependencies.dir}/plugins" />
 		<get src="${plugins.CodeBlockExtractor.url}" dest="${dependencies.dir}/plugins" />
 		<get src="${plugins.BusybootPreparation.url}" dest="${dependencies.dir}/plugins" />
+		<get src="${plugins.IncrementalAnalysesInfrastructure.url}" dest="${dependencies.dir}/plugins" />
 		<get src="${plugins.ProblemSolutionSpaceMapperAnalysis.url}" dest="${dependencies.dir}/plugins" />
 		<get src="${plugins.ProblemSolutionSpaceDivergenceDetectorAnalysis.url}" dest="${dependencies.dir}/plugins" />
 		<get src="${plugins.ProblemSolutionSpaceDivergenceCorrectorAnalysis.url}" dest="${dependencies.dir}/plugins" />
